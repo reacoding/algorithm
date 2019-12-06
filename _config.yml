@@ -5,7 +5,7 @@ author:
   email: "yqlinsci@gmail.com"
   url: "https://www.lin-sci.cn"
 
-baseurl: /
+baseurl: /algorithm
 
 source: .
 destination: ./_site
