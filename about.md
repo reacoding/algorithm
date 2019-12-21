@@ -3,4 +3,6 @@ layout: page
 title: About
 ---
 
-Something about me.
+Simple for coding practice.
+
+Learning data structure and algorithm.

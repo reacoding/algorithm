@@ -1,7 +1,7 @@
 ---
 title: Another Sample Page
 excerpt_separator: <!--more-->
-published: true
+published: false
 ---
 Test excerpt: There should be whitespace between paragraphs.
 There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.
