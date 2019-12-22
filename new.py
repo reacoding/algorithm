@@ -116,6 +116,51 @@ def GetBlogBaseDataFromArgv(argv):
 
   return blogBaseData
 
+def extraAlgorithmProblem():
+  """ template Algorithm-Problem(AP) extra content"""
+  content = ''
+  content += '## Understanding Problem\n----------------------\n\n'
+  content += '### InPuts\n\n\n'
+  content += '#### **What is the set of valid input?**\n\n\n'
+  content += '> **PS**: Defensive programing -> need to check inputs\n>\n\n\n'
+  content += '#### **How are inputs represented?**\n\n\n'
+  content += '### OutPuts\n'
+  content += '#### **What are the outputs?**\n\n\n'
+  content += '#### **Define the main procedure to link inputs and outputs:**\n\n\n'
+  content += '\n### Handy examples\n'
+  content += 'Calculation by hand, list **right** inputs and **wrong**'
+  content += 'inputs(output is `undefined`):\n- =>\n- =>\n- => `undefinded` (reasons) \n\n\n'
+  content += '## Solution\n----------------------\n\n'
+  content += '### Handy Solution\n\n'
+  content += '#### Consider **systematiclly** how a human solve the problem.\n**e.g.** => \n\n'
+  content += '#### => Algorithm **Pseudocode**:\n```python\n##'
+  content += '-------------------------------------------------------------------------------------------'
+  content += '###\n```\n\n'
+  content += '### Simple version\n\n'
+  content += '#### **Assumpation**:\n- \n\n'
+  content += '#### => Algorithm **Pseudocode**:\n```python\n\n##'
+  content += '-------------------------------------------------------------------------------------------'
+  content += '###\n\n##'
+  content += '----------------------------------Helper Function------------------------------------------'
+  content += '###\n\n##'
+  content += '------------------------------------main---------------------------------------------------'
+  content += '###\ndef :\n\n##'
+  content += '----------------------------------Test Function--------------------------------------------'
+  content += '###\ndef test():\n\ntest()\n```\n\n'
+  content += '#### => Algorithm **Code**:\n{% highlight python linenos %}\n{% raw %}\n\n##'
+  content += '-------------------------------------------------------------------------------------------'
+  content += '###\n\n##'
+  content += '----------------------------------Helper Function------------------------------------------'
+  content += '###\n\n##'
+  content += '------------------------------------main---------------------------------------------------'
+  content += '###\ndef :\n\n##'
+  content += '----------------------------------Test Function--------------------------------------------'
+  content += '###\ndef test():\n\ntest()\n{% endraw %}\n{% endhighlight %}\n\n'
+  content += '### Develop incrementally and Test\n\n'
+  content += '### Optimazation\n\n'
+  content += '## Algorithm Analysis\n----------------------\n\n\n'
+  return content
+
 def modifyBlogBaseDataByTemplate(blogBaseData):
   if blogBaseData['templateName'] == 'Algorithm-Problem' or blogBaseData['templateName'] == 'AP': ## Algorithm-Problem
     if not ('Algorithm-Problem' in blogBaseData['categories']):
@@ -125,46 +170,7 @@ def modifyBlogBaseDataByTemplate(blogBaseData):
     if not ('Practice' in blogBaseData['tags']):
       blogBaseData['tags'].append('Practice')
     ## extra content
-    blogBaseData['extra'] += '## Understanding Problem\n----------------------\n\n'
-    blogBaseData['extra'] += '### InPuts\n\n\n'
-    blogBaseData['extra'] += '#### **What is the set of valid input?**\n\n\n'
-    blogBaseData['extra'] += '> **PS**: Defensive programing -> need to check inputs\n>\n\n\n'
-    blogBaseData['extra'] += '#### **How are inputs represented?**\n\n\n'
-    blogBaseData['extra'] += '### OutPuts\n'
-    blogBaseData['extra'] += '#### **What are the outputs?**\n\n\n'
-    blogBaseData['extra'] += '#### **Define the main procedure to link inputs and outputs:**\n\n\n'
-    blogBaseData['extra'] += '\n### Handy examples\n'
-    blogBaseData['extra'] += 'Calculation by hand, list **right** inputs and **wrong** \
-                              inputs(output is `undefined`):\n- =>\n- =>\n- => `undefinded` (reasons) \n\n\n'
-    blogBaseData['extra'] += '## Solution\n----------------------\n\n'
-    blogBaseData['extra'] += '### Handy Solution\n\n'
-    blogBaseData['extra'] += '#### Consider **systematiclly** how a human solve the problem.\n**e.g.** => \n\n'
-    blogBaseData['extra'] += '#### => Algorithm **Pseudocode**:\n```python\n##'
-    blogBaseData['extra'] += '-------------------------------------------------------------------------------------------'
-    blogBaseData['extra'] += '###\n```\n\n'
-    blogBaseData['extra'] += '### Simple version\n\n'
-    blogBaseData['extra'] += '#### **Assumpation**:\n- \n\n'
-    blogBaseData['extra'] += '#### => Algorithm **Pseudocode**:\n```python\n\n##'
-    blogBaseData['extra'] += '-------------------------------------------------------------------------------------------'
-    blogBaseData['extra'] += '###\n\n##'
-    blogBaseData['extra'] += '----------------------------------Helper Function------------------------------------------'
-    blogBaseData['extra'] += '###\n\n##'
-    blogBaseData['extra'] += '------------------------------------main---------------------------------------------------'
-    blogBaseData['extra'] += '###\ndef :\n\n##'
-    blogBaseData['extra'] += '----------------------------------Test Function--------------------------------------------'
-    blogBaseData['extra'] += '###\ndef test():\n\ntest()\n```\n\n'
-    blogBaseData['extra'] += '#### => Algorithm **Code**:\n{% highlight python linenos %}\n{% raw %}\n\n##'
-    blogBaseData['extra'] += '-------------------------------------------------------------------------------------------'
-    blogBaseData['extra'] += '###\n\n##'
-    blogBaseData['extra'] += '----------------------------------Helper Function------------------------------------------'
-    blogBaseData['extra'] += '###\n\n##'
-    blogBaseData['extra'] += '------------------------------------main---------------------------------------------------'
-    blogBaseData['extra'] += '###\ndef :\n\n##'
-    blogBaseData['extra'] += '----------------------------------Test Function--------------------------------------------'
-    blogBaseData['extra'] += '###\ndef test():\n\ntest()\n{% endraw %}\n{% endhighlight %}\n\n'
-    blogBaseData['extra'] += '### Develop incrementally and Test\n\n'
-    blogBaseData['extra'] += '### Optimazation\n\n'
-    blogBaseData['extra'] += '## Algorithm Analysis\n----------------------\n\n\n'
+    blogBaseData['extra'] += extraAlgorithmProblem()
   elif blogBaseData['templateName'] == 'Notes' or blogBaseData['templateName'] == 'N': ## Notes
     if not ('Notes' in blogBaseData['categories']):
       blogBaseData['categories'].append('Notes')
