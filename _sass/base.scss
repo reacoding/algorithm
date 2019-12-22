@@ -37,7 +37,8 @@ section {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  margin: 0 0 20px;
+  margin-bottom: 10px;
+  margin-top: 30px;
 }
 
 li {
@@ -52,7 +53,7 @@ li {
 
 header {
   background: rgba(0, 0, 0, 0.1);
-  border-bottom: 1px dashed $conifer; //header;
+  border-bottom: 1px solid $conifer; //header;
   padding: 20px;
   margin: 0 0 40px 0;
 }
@@ -107,6 +108,10 @@ h1, h2, h3, h4, h5, h6 {
                0 0 10px rgba(181, 232, 83, 0.1);
 }
 
+.page-title{
+  text-align: center;
+}
+
 #main_content h1 {
   font-size: 30px;
 }
@@ -141,28 +146,25 @@ dt {
   font-weight: bold;
 }
 
-ul li {
+ul, ol{
+  margin: 0 15px;
+  padding-left: 20px;
+}
+
+ul .entry {
   list-style-image:url('../images/bullet.png');
+  margin-left: 20px;
 }
 
 blockquote {
   color: $blockquote-color;
   padding-left: 10px;
+  margin: 0 20px;
   border-left: 1px dotted $blockquote-border;
 }
 
-pre {
-  background: rgba(0, 0, 0, 0.9);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  padding: 10px;
-  font-size: 16px;
-  color: #b5e853;
-  border-radius: 2px;
-  text-wrap: normal;
-  overflow: auto;
-  overflow-y: hidden;
-}
 
+/* Inline code block */
 code.highlighter-rouge {
   background: rgba(0,0,0,0.9);
   border: 1px solid rgba(255, 255, 255, 0.15);
@@ -172,9 +174,68 @@ code.highlighter-rouge {
   border-radius: 2px;
 }
 
+pre {
+  background: rgba(0, 0, 0, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  font-size: 16px;
+  color: #b5e853;
+  border-radius: 2px;
+  text-wrap: normal;
+  overflow: auto;
+  overflow-y: hidden;
+}
+/* Multi-line code blocks */
+div.highlighter-rouge,
+figure.highlight {
+  position: relative;
+  padding: 0px;
+  margin: 1em 0px;
+  background: rgba(0,0,0,0.9);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #aa759f;
+  border-radius: 2px;
+
+  > pre,
+  pre.highlight {
+    margin: 0;
+    padding: 10px;
+  }
+}
+
+.highlight table {
+  margin-bottom: 0;
+  font-size: 1em;
+  border: 0;
+
+  td {
+    padding: 0;
+    width: 100%;
+
+    /* line numbers*/
+    &.gutter {
+      padding-right: 5px;
+      width: 1em;
+      text-align: right;
+      border-right: 1px solid rgba(255, 255, 255, 0.5);
+    }
+
+    /* code */
+    &.code {
+      padding-left: 5px;
+    }
+  }
+
+  pre {
+    margin: 0;
+    border: 0;
+  }
+}
+
+.highlight pre {
+  max-width: 100%;
+}
 table {
   width: 100%;
-  margin: 0 0 20px 0;
 }
 
 th {
@@ -192,8 +253,11 @@ hr {
   border: 0;
   border-bottom: 1px dashed #b5e853;
   color: #b5e853;
+  margin-top: -10px;
 }
-
+.title-line{
+  border-bottom: 1px solid #b5e853;
+}
 /* Buttons
 */
 
@@ -269,6 +333,14 @@ a:active, a:focus {
   text-align: center;
 }
 
+footer{
+  border-top: 1px solid white;
+}
+
 #wrapper {
   min-height: calc(100vh - 100px);
+}
+
+#main_content{
+  padding: 0 20px;
 }

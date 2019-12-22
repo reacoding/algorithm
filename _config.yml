@@ -6,6 +6,17 @@ author:
 
 baseurl: /algorithm/
 
+# Liquid
+liquid:
+  error_mode: strict
+
+# Build settings
+markdown: kramdown
+kramdown:
+  input: GFM
+# feed:
+#   path: atom.xml
+
 source: .
 destination: ./_site
 permalink: /:title
@@ -13,8 +24,7 @@ paginate: 5
 paginate_path: /page/:num/
 
 defaults:
-  -
-    scope:
+  - scope:
       path: ""
       type: "posts"
     values:
@@ -25,7 +35,22 @@ plugins:
   - jekyll-seo-tag
   - jekyll-paginate
   - jekyll-sitemap
+  - jekyll-mermaid
+  - jekyll-feed
 
+mathjax: true # MathJax equations, e.g. true
 # Custom variables
 owner : "Yuqing Lin"
 year : "2019"
+# Exclude from processing.
+# The following items will not be processed, by default. Create a custom list
+# to override the default setting.
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - new.py

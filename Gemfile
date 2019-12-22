@@ -15,9 +15,25 @@ gem "github-pages", group: :jekyll_plugins
 
 # If you have any plugins, put them here!
 group :jekyll_plugins do
-  gem 'jekyll-seo-tag', '~> 2.0'
+  gem "jekyll-feed", "~> 0.6"
+  gem "jekyll-mermaid"
+  gem "jekyll-paginate"
 end
 
+
+# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+# and associated library.
+install_if -> { RUBY_PLATFORM =~ %r!mingw|mswin|java! } do
+  gem "tzinfo", "~> 1.2"
+  gem "tzinfo-data"
+end
+
+# Performance-booster for watching directories on Windows
+gem "wdm", "~> 0.1.0", :install_if => Gem.win_platform?
+
+gem "rubyzip", ">= 1.3.0"
+
+gem "nokogiri", ">= 1.10.4"
 
 gem 'html-proofer', '~> 3.0'
 gem 'rubocop', '~> 0.50'

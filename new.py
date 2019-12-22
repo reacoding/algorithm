@@ -54,9 +54,7 @@ def printHelp():
   print("-t: title(NECESSARY). Each single word seperate by '_', e.g. -t Test_Title")
   print("-T: template chose, defined template: EF-GL, Music, Notes. e.g. -T EF-GL")
   print("please input one of following template names(the name abbreviation in brackets):")
-  print("  EF-GL(EG)")
-  print("  EF-Notes(EN)")
-  print("  Diary(D)")
+  print("  Algorithm-Problem(AP)")
   print("  Notes(N)")
   print("-c: categories, seperate by comma. e.g. -c EF-GL,English")
   print("-tg: tags, seperate by comma. e.g. -tg EnglishLearning, Advanced")
@@ -119,45 +117,63 @@ def GetBlogBaseDataFromArgv(argv):
   return blogBaseData
 
 def modifyBlogBaseDataByTemplate(blogBaseData):
-  if blogBaseData['templateName'] == 'EF_GL' or blogBaseData['templateName'] == 'EG': ## EF_GL
-    if not ('EF-GL' in blogBaseData['categories']):
-      blogBaseData['categories'].append('EF-GL')
-    if not ('English' in blogBaseData['tags']):
-      blogBaseData['tags'].append('English')
-    if not ('Advanced' in blogBaseData['tags']):
-      blogBaseData['tags'].append('Advanced')
+  if blogBaseData['templateName'] == 'Algorithm-Problem' or blogBaseData['templateName'] == 'AP': ## Algorithm-Problem
+    if not ('Algorithm-Problem' in blogBaseData['categories']):
+      blogBaseData['categories'].append('Algorithm-Problem')
+    if not ('Algorithm-Exercises' in blogBaseData['tags']):
+      blogBaseData['tags'].append('Algorithm-Exercises')
+    if not ('Practice' in blogBaseData['tags']):
+      blogBaseData['tags'].append('Practice')
     ## extra content
-    blogBaseData['extra'] += '> \n<!--more-->\n\n'
-    blogBaseData['extra'] += '----------------------\n### Questions\n\n\n'
-    blogBaseData['extra'] += '----------------------\n### Phrases\n\n\n'
-    blogBaseData['extra'] += '----------------------\n### Conversation\n\n\n'
-  elif blogBaseData['templateName'] == 'EF_Notes' or blogBaseData['templateName'] == 'EN': ## EF_Notes
-    if not ('EF-Notes' in blogBaseData['categories']):
-      blogBaseData['categories'].append('EF-Notes')
-    if not ('English' in blogBaseData['tags']):
-      blogBaseData['tags'].append('English')
-    if not ('Leaning-Notes' in blogBaseData['tags']):
-      blogBaseData['tags'].append('Leaning-Notes')
+    blogBaseData['extra'] += '## Understanding Problem\n----------------------\n\n'
+    blogBaseData['extra'] += '### InPuts\n\n\n'
+    blogBaseData['extra'] += '#### **What is the set of valid input?**\n\n\n'
+    blogBaseData['extra'] += '> **PS**: Defensive programing -> need to check inputs\n>\n\n\n'
+    blogBaseData['extra'] += '#### **How are inputs represented?**\n\n\n'
+    blogBaseData['extra'] += '### OutPuts\n'
+    blogBaseData['extra'] += '#### **What are the outputs?**\n\n\n'
+    blogBaseData['extra'] += '#### **Define the main procedure to link inputs and outputs:**\n\n\n'
+    blogBaseData['extra'] += '\n### Handy examples\n'
+    blogBaseData['extra'] += 'Calculation by hand, list **right** inputs and **wrong** \
+                              inputs(output is `undefined`):\n- =>\n- =>\n- => `undefinded` (reasons) \n\n\n'
+    blogBaseData['extra'] += '## Solution\n----------------------\n\n'
+    blogBaseData['extra'] += '### Handy Solution\n\n'
+    blogBaseData['extra'] += '#### Consider **systematiclly** how a human solve the problem.\n**e.g.** => \n\n'
+    blogBaseData['extra'] += '#### => Algorithm **Pseudocode**:\n```python\n##'
+    blogBaseData['extra'] += '-------------------------------------------------------------------------------------------'
+    blogBaseData['extra'] += '###\n```\n\n'
+    blogBaseData['extra'] += '### Simple version\n\n'
+    blogBaseData['extra'] += '#### **Assumpation**:\n- \n\n'
+    blogBaseData['extra'] += '#### => Algorithm **Pseudocode**:\n```python\n\n##'
+    blogBaseData['extra'] += '-------------------------------------------------------------------------------------------'
+    blogBaseData['extra'] += '###\n\n##'
+    blogBaseData['extra'] += '----------------------------------Helper Function------------------------------------------'
+    blogBaseData['extra'] += '###\n\n##'
+    blogBaseData['extra'] += '------------------------------------main---------------------------------------------------'
+    blogBaseData['extra'] += '###\ndef :\n\n##'
+    blogBaseData['extra'] += '----------------------------------Test Function--------------------------------------------'
+    blogBaseData['extra'] += '###\ndef test():\n\ntest()\n```\n\n'
+    blogBaseData['extra'] += '#### => Algorithm **Code**:\n{% highlight python linenos %}\n{% raw %}\n\n##'
+    blogBaseData['extra'] += '-------------------------------------------------------------------------------------------'
+    blogBaseData['extra'] += '###\n\n##'
+    blogBaseData['extra'] += '----------------------------------Helper Function------------------------------------------'
+    blogBaseData['extra'] += '###\n\n##'
+    blogBaseData['extra'] += '------------------------------------main---------------------------------------------------'
+    blogBaseData['extra'] += '###\ndef :\n\n##'
+    blogBaseData['extra'] += '----------------------------------Test Function--------------------------------------------'
+    blogBaseData['extra'] += '###\ndef test():\n\ntest()\n{% endraw %}\n{% endhighlight %}\n\n'
+    blogBaseData['extra'] += '### Develop incrementally and Test\n\n'
+    blogBaseData['extra'] += '### Optimazation\n\n'
+    blogBaseData['extra'] += '## Algorithm Analysis\n----------------------\n\n\n'
   elif blogBaseData['templateName'] == 'Notes' or blogBaseData['templateName'] == 'N': ## Notes
     if not ('Notes' in blogBaseData['categories']):
       blogBaseData['categories'].append('Notes')
     if not ('Notes' in blogBaseData['tags']):
       blogBaseData['tags'].append('Notes')
-  elif blogBaseData['templateName'] == 'Diary' or blogBaseData['templateName'] == 'D': ## Diary
-    if not ('Diary' in blogBaseData['categories']):
-      blogBaseData['categories'].append('Diary')
-    if not ('Diary' in blogBaseData['tags']):
-      blogBaseData['tags'].append('Diary')
-    ## extra content
-    blogBaseData['extra'] += '> ### Is yesterday a valuable day for you?\n<!--more-->\n\n'
-    blogBaseData['extra'] += '\n### What had you done yesterday?\n\n* \n'
-    blogBaseData['extra'] += '\n### What will you do today?\n\n- \n'
   else:
     print("InputErro: Undefined template name")
     print("please input one of following template names(the name abbreviation in brackets):")
-    print("  EF-GL(EG)")
-    print("  EF-Notes(EN)")
-    print("  Diary(D)")
+    print("  Algorithm-Problem(AP)")
     print("  Notes(N)")
     return
 
@@ -167,21 +183,21 @@ def getHeadText(blogBaseData):
   if blogBaseData['templateName'] != '':
     modifyBlogBaseDataByTemplate(blogBaseData) ## modify the base data
   headText+='title: \"'+blogBaseData['title'].replace('_',' ')+'\"\n' ## title line
-  # ## categories
-  # headText+='categories:\n'
-  # for text in blogBaseData['categories']:
-  #   if text != '':
-  #     headText+='  - '+text+'\n'
-  # ## tages
-  # headText+='tags:\n'
-  # for text in blogBaseData['tags']:
-  #   if text != '':
-  #     headText+='  - '+text+'\n'
-  ## last modified UTC datetime
+  ## categories
+  headText+='categories:\n'
+  for text in blogBaseData['categories']:
+    if text != '':
+      headText+='  - '+text+'\n'
+  ## tages
+  headText+='tags:\n'
+  for text in blogBaseData['tags']:
+    if text != '':
+      headText+='  - '+text+'\n'
+  # last modified UTC datetime
   headText+='excerpt_separator: <!--more-->\n'
   headText+='last_modified_at: '+GetUTCTimeText()+'\n'
-  headText+='---\n\n'
-  headText+='<!--more-->\n\n'
+  headText+='---\n'
+  headText+='> \n\n<!--more-->\n\n'
   if blogBaseData['extra'] != '':
     headText+=blogBaseData['extra']
   return headText

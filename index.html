@@ -4,12 +4,12 @@ layout: default
 
 <ul>
     {% for post in paginator.posts %}
-      <li>
+      <li class="entry">
           <h2><a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">{{ post.title }}</a></h2>
           <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date_to_string }}</time>
           <p>
-            {% if post.excerpt %}
-              {{ post.excerpt | markdownify | truncatewords:50 }}
+            {% if post.excerpt %}         
+              {{ post.excerpt | markdownify | strip_html | truncatewords: 50 }}
             {% endif %}
           </p>
       </li>
