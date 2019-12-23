@@ -159,6 +159,8 @@ def extraAlgorithmProblem():
   content += '### Develop incrementally and Test\n\n'
   content += '### Optimazation\n\n'
   content += '## Algorithm Analysis\n----------------------\n\n\n'
+  content += '### Time Complexity\n\n\n'
+  content += '### Space Complexity\n\n\n'
   return content
 
 def modifyBlogBaseDataByTemplate(blogBaseData):
